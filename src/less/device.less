@@ -1,0 +1,70 @@
+@import './hack.less';
+#device {
+	background: #f0eff5;
+	>div{
+		padding: 10px;
+	}
+	.status{
+		background: #fff;
+		overflow: hidden;
+		border-bottom: 1px solid #ddd;
+		.tit{
+			color: #999;
+			float: left;
+			margin-top: 7px;
+		}
+		.all,.off-line,.on-line{
+			margin-left: 20px;
+			border: 2px solid #ddd;
+			float: left;
+			padding: 5px 20px;
+			border-radius: 5px;
+		}
+		.active{
+			border: 2px solid #7e8fbd;
+			color: #7e8fbd;
+		}
+	}
+	.place{
+		background: #fff;
+		overflow: hidden;
+		span{
+			float: left;
+		}
+		.tag{
+			margin-left: 20px;
+			color: #7e8fbd;
+			width: 100px;
+		}
+	}
+	.inst{
+		overflow: hidden;
+	}
+	.space-info{
+		padding: 0;
+		&-t{
+			padding: 10px;
+			background: #fafafa;
+			overflow: hidden;
+			.col{
+				color: #f00;
+			}
+		}
+		.list{
+			background: #fff;
+			padding: 10px;
+			li{
+				overflow: hidden;
+				.font{
+					color: #aaa;
+				}
+				.col{
+					color: #fff;
+					background: #f00;
+					border-radius: 8px;
+					padding: 5px 8px;
+				}
+			}
+		}
+	}
+}

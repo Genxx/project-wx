@@ -1,0 +1,40 @@
+@import './hack.less';
+#app {
+  	&>div{
+	  	border-radius: 10px;
+	  	margin: auto;
+	  	width: 95%;
+	  	margin-top: 20px;
+	  	display: flex;
+	  	text-align: center;
+  	}
+  	.concern{
+	  	border: 1px solid #ccc;
+	  	position: relative;
+	  	.swiper-slide{
+	  		width: 100% !important;
+	  	}
+	  	button{
+	  		position: absolute;
+	  		bottom: 30px;
+	  		left: 50%;
+	  		z-index: 10;
+	  		margin-left: -30%;
+	  		color: #fff;
+	  		border: none;
+	  		border-radius: 5px;
+	  		width: 60%;
+	  		height: 50px;
+	  		&:focus{
+	  			outline: none;
+	  		}
+	  	}
+  	}
+  	.pay{
+		background: #42a636; 
+		text-align: center;
+		&>div{
+			margin: auto;
+		}	
+  	}
+}
