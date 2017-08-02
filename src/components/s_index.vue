@@ -4,7 +4,7 @@
       <swiper :options="swiperOption" ref="mySwiper">
         <!-- slides -->
         <swiper-slide v-for="(item,index) in data" :key="index">
-          <v-touch v-on:press="imgs(item.qrcodeUrl)">
+          <v-touch v-on:press="imgs(item.appid)">
           <img :src="item.qrcodeUrl" height="200" width="200">
           </v-touch>
         </swiper-slide>
@@ -116,14 +116,15 @@
       _pay() {
         location.href = './s_pay.html'
       },
-      imgs(url) {
+      imgs(appid) {
 //        长按
-        this.$http.get('/api/qrcode/'+url)
+        this.$http.get('/api/qrcode/?'+appid)
           .then(function (res) {
             console.log(res.data)
           }, function (err) {
             console.log(err)
           })
+
       }
     },
     beforeCreate() {
@@ -133,13 +134,29 @@
       var innerHeight = window.innerHeight
       $('.concern').css('height', (innerHeight - 60) / 2 + 'px')
       $('.pay').css('height', (innerHeight - 60) / 2 + 'px')
-//      this.$http.get('/api/qrcode')
-//        .then(function (res) {
-//          console.log(res.data)
-//          this.data = res.data
-//        }, function (err) {
-//          console.log(err)
-//        })
+      if(localStorage.getItem("token")){
+        this.$http.get('/api/qrcode')
+          .then(function (res) {
+            console.log(res.data)
+            if (res.data.token != null) {
+              localStorage.setItem("token", res.data.token);
+            }
+            this.data = res.data
+          }, function (err) {
+            console.log(err)
+          })
+      }else {
+        this.$http.get('/api/qrcode?'+localStorage.getItem("token"))
+          .then(function (res) {
+            console.log(res.data)
+            if (res.data.token != null) {
+              localStorage.setItem("token", res.data.token);
+            }
+            this.data = res.data
+          }, function (err) {
+            console.log(err)
+          })
+      }
     }
   }
 </script>
