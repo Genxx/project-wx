@@ -15,7 +15,7 @@
       </swiper>
       <!-- <button btn = "1" class="changan">点击关注公众号</button> -->
 
-        <button class="weui-btn weui-btn_primary">长按关注公众号</button>
+        <!--<button class="weui-btn weui-btn_primary">长按关注公众号</button>-->
 
     </div>
     <div class="pay" >
@@ -124,7 +124,6 @@
           }, function (err) {
             console.log(err)
           })
-
       }
     },
     beforeCreate() {
